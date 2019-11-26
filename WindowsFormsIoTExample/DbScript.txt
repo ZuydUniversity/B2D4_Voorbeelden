@@ -1,0 +1,37 @@
+/****** Object:  Table [dbo].[tblDevice]    Script Date: 25-11-2019 13:48:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblDevice](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[HardwareID] [int] NULL,
+	[DeviceType] [int] NULL,
+	[Name] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+ CONSTRAINT [PK_tblDevice] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblLogging]    Script Date: 25-11-2019 13:48:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblLogging](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[DeviceID] [int] NULL,
+	[LogTimestamp] [datetime] NULL,
+	[LogIdx] [int] NULL,
+	[LogLevel] [int] NULL,
+	[LogData] [varchar](50) NULL,
+	[LogStatus] [varchar](50) NULL,
+	[Message] [varchar](max) NULL,
+ CONSTRAINT [PK_tblLogging] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
